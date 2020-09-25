@@ -19,11 +19,12 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="image-container">
+                    <div class="image-container image-detail">
                         <img src="{{route('image.file', ['filename'=>$image->image_path])}}" alt="">
                     </div>                   
                     <div class="description">
                         <span class="nickname">{{'@'.$image->user->nick}}</span>
+                        <span class="nickname date"> {{' | '.\FormatTime::LongTimeFilter($image->created_at)}} </span>
                         <p>{{$image->description}}</p>
                     </div>
                     <div class="likes">
@@ -33,10 +34,16 @@
                     <div class="comments">
                        <h2>Comentarios ({{count($image->comments)}})</h2>
                        <hr>
-                       <form method="POST" action="">
+                       <form method="POST" action="{{route('comment.save')}}">
+                           @csrf
                            <input type="hidden" name="image_id" value="{{$image->id}}">
                            <p>
-                               <textarea class="form-control" name="content" required id="" cols="30" rows="10"></textarea>
+                               <textarea id="content" class="form-control @error('content') is-invalid @enderror" name="content" cols="30" rows="10"></textarea>
+                               @error('content')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                                @enderror
                                <hr>
                                <button type="submit" class="btn btn-success">
                                    Enviar

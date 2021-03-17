@@ -39,6 +39,8 @@ class ImageController extends Controller
         $image->user_id = $user->id;
         
         $image->description = $description;
+        // var_dump($image_path);
+        // die();
 
         // Subir fichero
         if($image_path){

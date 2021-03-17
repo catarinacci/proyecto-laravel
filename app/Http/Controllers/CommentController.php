@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Comment;
 
@@ -21,7 +21,7 @@ class CommentController extends Controller
         ]);
 
         //Recoger datos formulario
-        $user = \Auth::user();
+        $user = Auth::user();
         $image_id = $request->input('image_id');
         $content = $request->input('content');
 
@@ -41,7 +41,7 @@ class CommentController extends Controller
 
     public function delete($id){
         //Conseguir datos del usuario logueado
-        $user = \Auth::user();
+        $user = Auth::user();
 
         //Conseguir objeto del comentario
         $comment = Comment::find($id);

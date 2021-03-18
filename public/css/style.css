@@ -92,3 +92,8 @@ form .avatar{
 .pub_image .comments{
     padding: 20px;
 }
+
+.number_likes{
+    color:rgb(150, 141, 141);
+    font-size: 11px;
+}

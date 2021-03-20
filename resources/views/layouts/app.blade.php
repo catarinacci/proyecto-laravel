@@ -57,6 +57,10 @@
                             
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{Route('likes')}}">Favoritos</a>
+                            
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{Route('image.create')}}">Subir imagen</a>
                         </li>
                         <li>
@@ -68,7 +72,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{route('profile',['id' => Auth::user()->id])}}">
                                         Mi perfil
                                     </a>
                                     <a class="dropdown-item" href="{{route('config')}}">

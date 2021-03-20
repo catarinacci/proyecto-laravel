@@ -97,3 +97,27 @@ form .avatar{
     color:rgb(150, 141, 141);
     font-size: 11px;
 }
+
+.profile-user{
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.profile-user .container-avatar{
+    width: 250px;
+    height: 250px;
+    border-radius: 900px;
+    overflow: hidden;
+    float: left;
+}
+
+.profile-user .container-avatar img{
+    /* width: 100%; */
+    height: 100%;
+    
+}
+
+.profile-user .user-info{
+    float:left;
+    padding-left: 30px;
+}

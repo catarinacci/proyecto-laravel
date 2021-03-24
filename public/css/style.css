@@ -121,3 +121,8 @@ form .avatar{
     float:left;
     padding-left: 30px;
 }
+
+.btn-search{
+    margin-left: 0px ;
+    padding-left: 0px;
+}

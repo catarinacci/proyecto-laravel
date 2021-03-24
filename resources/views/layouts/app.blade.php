@@ -57,6 +57,10 @@
                             
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{Route('user.index')}}">Gente</a>
+                            
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{Route('likes')}}">Favoritos</a>
                             
                         </li>

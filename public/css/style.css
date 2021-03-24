@@ -1,70 +1,70 @@
-form .avatar{
-    width: 55px;
-    margin-bottom: 15px;
+form .avatar {
+  width: 55px;
+  margin-bottom: 15px;
 }
 
 .navbar .container-avatar,
-.pub_image .container-avatar{
-    height: 35px;
-    width: 35px;
-    border-radius: 900px;
-    overflow: hidden;
-    margin-left: 20px;
+.pub_image .container-avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 900px;
+  overflow: hidden;
+  margin-left: 20px;
 }
 
 .navbar .container-avatar img,
-.pub_image .container-avatar img{
-    height: 100%;
+.pub_image .container-avatar img {
+  height: 100%;
 }
 
-.pub_image .container-avatar{
-    float: left;
-    margin-right: 15px;
+.pub_image .container-avatar {
+  float: left;
+  margin-right: 15px;
 }
 
-.pub_image{
-    margin-bottom: 25px;
+.pub_image {
+  margin-bottom: 25px;
 }
 
-.pub_image .data-user{
-    font-weight: bold;
-    line-height: 35px;
+.pub_image .data-user {
+  font-weight: bold;
+  line-height: 35px;
 }
 
-.pub_image .data-user a{
-    color: #444444;
+.pub_image .data-user a {
+  color: #444444;
 }
 
-.pub_image .nickname{
-    color: gray;
+.pub_image .nickname {
+  color: gray;
 }
 
-.image-container{
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
+.image-container {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
 }
 
-.image-detail{
-    max-height: 500px;
+.image-detail {
+  max-height: 500px;
 }
 
-.image-container img{
-    width: 100%;
-    height: auto;
+.image-container img {
+  width: 100%;
+  height: auto;
 }
 
-.image-detail{
-    max-height: 600px;
+.image-detail {
+  max-height: 600px;
 }
 
-.pub_image .card-body{
-    padding: 0px;
+.pub_image .card-body {
+  padding: 0px;
 }
 
-.pub_image .description{
-    padding: 20px;
-    padding-bottom: 0px;
+.pub_image .description {
+  padding: 20px;
+  padding-bottom: 0px;
 }
 
 /* .pub_image .description p {
@@ -72,57 +72,57 @@ form .avatar{
     margin-bottom: 0px;
 } */
 
-.pub_image .btn-comments{
-    margin: 20px;
-    margin-top: 0px;
-    margin-left: 0px;
+.pub_image .btn-comments {
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 0px;
 }
 
-.likes{
-    float: left;
-    padding-left: 20px;
-    padding-right: 10px;
+.likes {
+  float: left;
+  padding-left: 20px;
+  padding-right: 10px;
 }
 
-.likes img{
-    width: 20px;
-    margin-top: 25px;
+.likes img {
+  width: 20px;
+  margin-top: 25px;
 }
 
-.pub_image .comments{
-    padding: 20px;
+.pub_image .comments {
+  padding: 20px;
 }
 
-.number_likes{
-    color:rgb(150, 141, 141);
-    font-size: 11px;
+.number_likes {
+  color: #968d8d;
+  font-size: 11px;
 }
 
-.profile-user{
-    height: 200px;
-    margin-bottom: 40px;
+.profile-user {
+  height: 200px;
+  margin-bottom: 40px;
 }
 
-.profile-user .container-avatar{
-    width: 250px;
-    height: 250px;
-    border-radius: 900px;
-    overflow: hidden;
-    float: left;
+.profile-user .container-avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 900px;
+  overflow: hidden;
+  float: left;
 }
 
-.profile-user .container-avatar img{
-    /* width: 100%; */
-    height: 100%;
-    
+.profile-user .container-avatar img {
+  /* width: 100%; */
+  height: 100%;
 }
 
-.profile-user .user-info{
-    float:left;
-    padding-left: 30px;
+.profile-user .user-info {
+  float: left;
+  padding-left: 30px;
 }
 
-.btn-search{
-    margin-left: 0px ;
-    padding-left: 0px;
+.btn-search {
+  margin-left: 0px;
+  padding-left: 0px;
 }
+

@@ -15,3 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/main.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/style.scss', 'public/css');
+
+mix.browserSync({
+    proxy: 'http://proyecto-laravel.com.devel/',
+    browser: 'false'
+    
+});

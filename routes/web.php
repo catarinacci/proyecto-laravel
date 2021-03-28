@@ -40,6 +40,9 @@ Route::get('/', function () {
 //GENERALES
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/role', function(){
+    return \App\Role::with('user')->get();
+});
 
 //USUARIOS
 Route::get('/configuracion', 'UserController@config')->name('config');

@@ -14,7 +14,7 @@
     </div>
     <div class="card-body">
         <div class="image-container image-detail">
-            <img src="{{route('image.file', ['filename'=>$image->image_path])}}" alt="">
+            <a href="{{route('image.detail', ['id' => $image->id])}}"><img src="{{route('image.file', ['filename'=>$image->image_path])}}" alt=""></a>
         </div>
         <div class="description">
             <span class="nickname">{{'@'.$image->user->nick}}</span>
@@ -45,5 +45,10 @@
                 Comentarios ({{count($image->comments)}})
             </a>
         </div>
+        @if(auth()->user()->role_id == 1)
+        {{$role}}
+        <div class="actions">
+            <a href="{{route('image.delete', ['id' => $image->id])}}" class="btn btn-sm btn-danger">Borrar</a>  
+        @endif
     </div>
 </div>

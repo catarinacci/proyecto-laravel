@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Image;
+use App\Role;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,10 +27,12 @@ class HomeController extends Controller
     public function index()
     {
         $images = Image::orderBy('id', 'desc')->paginate(5);
-        // var_dump($images);
-        // die();
+        $user = Auth::user();
+        $role = $user->role->name;
         return view('home', [
-            'images' => $images
+            'images' => $images,
+            'role'   => $role,
+            'user'   => $user
         ]);
     }
 }

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use App\Comment;
+use App\Http\Requests\SaveImageRequest;
+use App\Http\Requests\UpdateImageRequest;
 use App\Like;
+use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,14 +26,14 @@ class ImageController extends Controller
         return view('image.create');
     }
 
-    public function save(Request $request){
+    public function save(SaveImageRequest $request){
         
         // Validación
-        $validate = $this->validate($request, [
-            'image_path' => ['required', 'image'],
-            'description' => ['required'],
+        // $validate = $this->validate($request, [
+        //     'image_path' => ['required', 'image'],
+        //     'description' => ['required'],
             
-        ]);
+        // ]);
         
         // Recoger datos
         $image_path = $request->file('image_path');
@@ -62,10 +66,12 @@ class ImageController extends Controller
 
     public function detail($id){
         $image = Image::find($id);
+        $user = Auth::user();
         // var_dump($image);
         // die();
         return view('image.detail',[
-            'image' => $image
+            'image' => $image,
+            'user'  => $user
         ]);
     }
 
@@ -74,28 +80,35 @@ class ImageController extends Controller
         $image = Image::find($id);
         $comments = Comment::where('image_id', $id)->get();
         $likes = Like::where('image_id', $id)->get();
-
-        if($user && $image && $image->user->id == $user->id){
-            //Eliminar comentarios
-            if($comments && count($comments) >= 1){
-                foreach($comments as $comment ){
-                    $comment->delete();
+        // var_dump($user);
+        // var_dump($image);
+        
+        if($user && $image ){
+            if($image->user->id == $user->id || $user->role_id == 1){
+                //Eliminar comentarios
+                if($comments && count($comments) >= 1){
+                    foreach($comments as $comment ){
+                        $comment->delete();
+                    }
                 }
-            }
 
-            //Eliminar los likes
-            if($likes && count($likes) >= 1){
-                foreach($likes as $like ){
-                    $like->delete();
+                //Eliminar los likes
+                if($likes && count($likes) >= 1){
+                    foreach($likes as $like ){
+                        $like->delete();
+                    }
                 }
+
+                //Eliminar fichero de imagen
+                Storage::disk('images')->delete($image->image_path);
+
+                //Eliminar registro imagen
+                 $image->delete();
+                // var_dump($id);
+                // die();
+                // DB::table('images')->delete((int)$id);
+                $message = array('message' => 'La imagen se ha borrado correctamente');
             }
-
-            //Eliminar fichero de imagen
-            Storage::disk('images')->delete($image->image_path);
-
-            //Eliminar registro imagen
-            $image->delete();
-            $message = array('message' => 'La imagen se ha borrado correctamente');
         }else{
             $message = array('message' => 'La imagen no se ha borrado');
         }
@@ -115,7 +128,7 @@ class ImageController extends Controller
         }
     }
 
-    public function update(Request $request){
+    public function update(UpdateImageRequest $request){
 
         // Validación
         $validate = $this->validate($request, [

@@ -6,7 +6,7 @@
         <div class="col-md-8">
             @include('includes.message')
             @foreach($images as $image)
-                @include('includes.image', ['image'=>$image])
+                @include('includes.image', ['image'=>$image, 'user'=>$user, 'role'=>$role])
             @endforeach
             <!-- Enlaces de paginación -->
             <div class="clearfix"></div>

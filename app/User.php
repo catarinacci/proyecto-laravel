@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role', 'name', 'surname', 'nick', 'email', 'password',
+        'role_id','name', 'surname', 'nick', 'email', 'password',
     ];
 
     /**
@@ -39,5 +40,12 @@ class User extends Authenticatable
 
     public function images(){
         return $this->hasMany('App\Image');
+    }
+
+    // public function role(){
+    //     return $this->belongsTo('App\User', 'role_id');
+    // }
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -38,31 +39,34 @@ class UserController extends Controller
         return view('user.config');
     }
 
-    public function update(Request $request){
+    public function update(UpdateUserRequest $request){
 
         // Conseguir el usuario identificado
-        $user = Auth::user();
-        $id = $user->id;
+         $user = Auth::user();
+        // $id = $user->id;
 
         // Validar los datos del formulario
-        $validate = $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'nick' => ['required', 'string', 'max:255', 'unique:users,nick,'.$id],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
-        ]);
+        // $validate = $this->validate($request, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'role_id' => ['required', 'string', 'max:255'],
+        //     'surname' => ['required', 'string', 'max:255'],
+        //     'nick' => ['required', 'string', 'max:255', 'unique:users,nick,'.$id],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
+        // ]);
 
         // Recoger los datos del formulario
         $name = $request->input('name');
         $surname = $request->input('surname');
         $nick = $request->input('nick');
         $email = $request->input('email');
+        $role_id=$request->input('role_id');
 
         // Asignar nuevos valores al objeto del usuario (setear los nuevos datos al objeto)
         $user->name = $name;
         $user->surname = $surname;
         $user->nick = $nick;
         $user->email = $email;
+        $user->role_id = (int)$role_id;
 
         // Subir la imagen
         $image_path = $request->file('image_path');
